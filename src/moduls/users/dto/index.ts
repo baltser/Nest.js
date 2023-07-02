@@ -1,7 +1,7 @@
 import { IsString } from "class-validator";
 
 
-export class createUserDto {
+export class CreateUserDTO {
     @IsString()
     firstName: string
     @IsString()
