@@ -1,6 +1,5 @@
 import {BadRequestException, Injectable} from '@nestjs/common';
 import { UsersService } from "../users/users.service";
-// import { JwtService} from "@nestjs/jwt";
 import {CreateUserDTO} from "../users/dto";
 import {appError} from "../../common/constants/errors";
 import {UserLoginDTO} from "./dto";
@@ -30,20 +29,4 @@ export class AuthService {
         const token = await this.tokenService.generateJwtToken(dto.email);
         return {...existUser, token};
     }
-
-    // async validateUser(username: string, pass: string): Promise<any> {
-    //     const user = await this.usersService.findOne(username);
-    //     if(user && user.password === pass) {
-    //         const { password, ...result } = user;
-    //         return result;
-    //     }
-    //     return null
-    // }
-
-    // async login(user: any) {
-    //     const payload = { username: user.username, sub: user.userId };
-    //     return {
-    //         access_token: this.jwtService.sign(payload)
-    //     }
-    // }
 }
