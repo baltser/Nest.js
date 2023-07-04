@@ -4,7 +4,6 @@ import {User} from "./models/user.model";
 import * as bcrypt from "bcrypt";
 import {CreateUserDTO} from "./dto";
 
-
 @Injectable()
 export class UsersService {
   constructor(@InjectModel(User) private readonly userRepository: typeof User) {}
