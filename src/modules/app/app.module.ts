@@ -11,6 +11,8 @@ import { User } from "../users/models/user.model";
 import {UserController} from "../users/user.controller";
 import {AuthController} from "../auth/auth.controller";
 import {TokenModule} from "../token/token.module";
+import {Watchlist} from "../watchlist/models/watchlist.model";
+import {WatchlistModule} from "../watchlist/watchlist.module";
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -29,18 +31,20 @@ import {TokenModule} from "../token/token.module";
           database: configService.get('db_name'),
           synchronize: true,
           autoLoadModels: true,
-          models: [User]
+          models: [User, Watchlist]
         })
       }),
     AuthModule,
     UsersModule,
-    TokenModule
+    TokenModule,
+    WatchlistModule
   ],
   controllers: [
-      AppController,
-    PostsController,
-    UserController,
-    AuthController],
+  AppController,
+  PostsController,
+  UserController,
+  AuthController
+  ],
   providers: [AppService],
 })
 export class AppModule {}
